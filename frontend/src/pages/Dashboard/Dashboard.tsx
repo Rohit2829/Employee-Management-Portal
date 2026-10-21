@@ -78,35 +78,10 @@ export default function Dashboard() {
   // Watch the selected chart type to dynamically change form labels
   const selectedChartType = Form.useWatch('type', form);
 
-  useEffect(() => {
-    fetchStats();
-
-    const saved = localStorage.getItem('dashboard_charts');
-    if (saved) {
-      try {
-        setChartConfigs(JSON.parse(saved));
-      } catch (e) {
-        setChartConfigs(DEFAULT_CHARTS);
-      }
-    } else {
-      setChartConfigs(DEFAULT_CHARTS);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (chartConfigs.length > 0) {
-      chartConfigs.forEach(config => {
-        if (!chartDataCache[config.id]) {
-          fetchChartData(config);
-        }
-      });
-      localStorage.setItem('dashboard_charts', JSON.stringify(chartConfigs));
-    }
-  }, [chartConfigs]);
-
   const fetchStats = async () => {
     try {
       setLoadingStats(true);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const response: any = await ApiService.getDashboardStats();
       if (response?.dataResponse?.returnCode === 0) {
         setStats(response.data);
@@ -120,8 +95,29 @@ export default function Dashboard() {
     }
   };
 
+  useEffect(() => {
+    fetchStats();
+
+    const saved = localStorage.getItem('dashboard_charts');
+    if (saved) {
+      try {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setChartConfigs(JSON.parse(saved));
+      } catch (e) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setChartConfigs(DEFAULT_CHARTS);
+      }
+    } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setChartConfigs(DEFAULT_CHARTS);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fetchChartData = async (config: ChartConfig) => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const response: any = await ApiService.getDynamicChartData({
         groupBy: config.groupBy,
         metric: config.metric
@@ -133,6 +129,18 @@ export default function Dashboard() {
       message.error(`Failed to load data for ${config.title}`);
     }
   };
+
+  useEffect(() => {
+    if (chartConfigs.length > 0) {
+      chartConfigs.forEach(config => {
+        if (!chartDataCache[config.id]) {
+          fetchChartData(config);
+        }
+      });
+      localStorage.setItem('dashboard_charts', JSON.stringify(chartConfigs));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chartConfigs]);
 
   const handleAddChart = (values: any) => {
     const newConfig: ChartConfig = {

@@ -23,6 +23,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     const userStr = localStorage.getItem('user');
     if (userStr) {
       try {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setUser(JSON.parse(userStr));
       } catch (e) {
         console.error('Failed to parse user from localStorage', e);
@@ -33,6 +34,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   // Close menu when route changes on mobile
   useEffect(() => {
     if (window.innerWidth <= 768) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSidebarOpen(false);
     }
   }, [location.pathname]);

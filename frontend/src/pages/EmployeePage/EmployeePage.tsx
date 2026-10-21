@@ -32,10 +32,6 @@ export default function EmployeePage() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [editId, setEditId] = useState<number | null>(null);
 
-  useEffect(() => {
-    fetchEmployees();
-  }, [filterModel.currentPage, filterModel.pageSize, filterModel.searchText]);
-
   const fetchEmployees = useCallback(async () => {
     try {
       setLoading(true);
@@ -54,6 +50,10 @@ export default function EmployeePage() {
       setLoading(false);
     }
   }, [filterModel]);
+
+  useEffect(() => {
+    fetchEmployees();
+  }, [filterModel.currentPage, filterModel.pageSize, filterModel.searchText]);
 
   const handleSearch = (value: string) => {
     setFilterModel((prev) => ({ ...prev, searchText: value, currentPage: 1 }));
