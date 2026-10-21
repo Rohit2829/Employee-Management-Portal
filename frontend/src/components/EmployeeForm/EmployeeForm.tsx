@@ -83,17 +83,6 @@ export default function EmployeeForm({ open, editId, onClose, onSuccess }: Emplo
     }
   };
 
-  useEffect(() => {
-    if (open) {
-      if (isEdit) {
-        fetchEmployee();
-      } else {
-        form.resetFields();
-        setSalutationPrefix('Mr.');
-      }
-    }
-  }, [open, editId]);
-
   const fetchEmployee = async () => {
     try {
       setFetching(true);
@@ -140,6 +129,18 @@ export default function EmployeeForm({ open, editId, onClose, onSuccess }: Emplo
       setFetching(false);
     }
   };
+
+  useEffect(() => {
+    if (open) {
+      if (isEdit) {
+        fetchEmployee();
+      } else {
+        form.resetFields();
+        setSalutationPrefix('Mr.');
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, editId]);
 
   const handleSubmit = async (values: any) => {
     try {
