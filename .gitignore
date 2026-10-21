@@ -1,0 +1,34 @@
+# Environment variables - NEVER commit these
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+**/dist/
+**/build/
+
+# Logs
+*.log
+logs/
+**/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# SQLite database (contains real data)
+*.sqlite
+*.sqlite3
+*.db
+
+# Package lock files (managed per sub-project)
+package-lock.json
