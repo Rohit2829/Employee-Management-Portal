@@ -1,0 +1,51 @@
+name: PR Quality Check
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  quality:
+    name: PR Quality Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ── Frontend checks ──────────────────
+      - name: 📦 Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: 🔍 Frontend lint
+        working-directory: frontend
+        run: npm run lint
+
+      - name: 🏗️ Frontend build check
+        working-directory: frontend
+        run: npm run build
+
+      # ── Backend checks ───────────────────
+      - name: 📦 Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: 🔍 Backend TypeScript check
+        working-directory: backend
+        run: npx tsc --noEmit
+
+      # ── PR Summary comment ───────────────
+      - name: ✅ All checks passed
+        if: success()
+        run: echo "All quality checks passed! Ready for review. 🚀"
+
+      - name: ❌ Checks failed
+        if: failure()
+        run: echo "Quality checks failed. Please fix the issues before merging."
