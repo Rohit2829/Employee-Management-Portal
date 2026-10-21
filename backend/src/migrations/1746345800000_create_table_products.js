@@ -1,0 +1,30 @@
+module.exports = {
+  up: `CREATE TABLE IF NOT EXISTS products (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    description TEXT,
+    brand_id BIGINT NOT NULL,
+    category_id BIGINT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    discount_price DECIMAL(10, 2) DEFAULT NULL,
+    stock INT NOT NULL DEFAULT 0,
+    sku VARCHAR(100) NOT NULL UNIQUE,
+    thumbnail_url VARCHAR(500),
+    is_active TINYINT NOT NULL DEFAULT 1,
+    created_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_on TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    is_deleted TINYINT NOT NULL DEFAULT 0,
+    deleted_on TIMESTAMP NULL DEFAULT NULL,
+    PRIMARY KEY (id),
+    INDEX idx_slug (slug),
+    INDEX idx_brand_id (brand_id),
+    INDEX idx_category_id (category_id),
+    INDEX idx_sku (sku),
+    INDEX idx_is_active (is_active),
+    FOREIGN KEY (brand_id) REFERENCES brands(id) ON DELETE RESTRICT,
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE RESTRICT
+);`,
+
+  down: `DROP TABLE IF EXISTS products`,
+};

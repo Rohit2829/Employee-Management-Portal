@@ -1,0 +1,25 @@
+.employee-form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.employee-form-save-btn {
+  background: #0f172a;
+  border-color: #0f172a;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.employee-form-divider {
+  color: #475569;
+  font-weight: 600;
+}
+
+.employee-form-country-code {
+  width: 100px;
+}
+
+.employee-form-number-input,
+.employee-form-date-input {
+  width: 100%;
+}

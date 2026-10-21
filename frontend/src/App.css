@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ────────────────────── Global Reset ────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1e293b;
+  min-height: 100vh;
+  
+  /* Warm human-centric ambient gradients combined with organic vector waves (higher visibility) */
+  background-color: #f1f5f9;
+  background-image: 
+    /* Top-left soft emerald glow (Vedanta brand green) */
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.15) 0%, transparent 45%),
+    /* Bottom-right soft sky-blue glow */
+    radial-gradient(circle at 85% 85%, rgba(14, 165, 233, 0.15) 0%, transparent 45%),
+    /* Bottom-right soft organic vector curves */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 600' fill='none'%3E%3Cpath d='M1000 600 C1100 500 1300 450 1440 500 L1440 600 Z' fill='%2310b981' fill-opacity='0.08'/%3E%3Cpath d='M800 600 C1000 420 1250 400 1440 450 L1440 600 Z' fill='%230f172a' fill-opacity='0.05'/%3E%3C/svg%3E"),
+    /* Top-left organic vector curves */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 600' fill='none'%3E%3Cpath d='M0 0 C150 120 300 150 500 100 C700 50 900 120 1000 200 L0 200 Z' fill='%2310b981' fill-opacity='0.05'/%3E%3Cpath d='M0 0 C200 80 400 60 600 150 C750 220 900 180 1100 250 L0 250 Z' fill='%230f172a' fill-opacity='0.03'/%3E%3C/svg%3E");
+    
+  background-attachment: fixed;
+  background-position: center, center, bottom right, top left;
+  background-repeat: no-repeat;
+  background-size: cover, cover, auto 600px, auto 500px;
+}
+
+/* ────────────────────── App Container ────────────────────── */
+.app-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px;
+  min-height: 100vh;
+  transition: padding 0.3s ease;
+}
+
+/* Eliminate top spacing gap and redundant scroll height inside the layout content pane */
+.main-layout-content .app-container {
+  padding-top: 12px !important;
+  min-height: auto !important;
+}
+
+/* ────────────────────── Page Animation ────────────────────── */
+.employee-page, .dashboard-container {
+  animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ────────────────────── Card Styling ────────────────────── */
+.ant-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02) !important;
+  border-radius: 16px !important;
+}
+
+.ant-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03) !important;
+  transform: translateY(-2px);
+}
+
+/* ────────────────────── Table Styling ────────────────────── */
+.ant-table-wrapper .ant-table {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.ant-table-thead > tr > th {
+  background: #f8fafc !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  color: #64748b !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding: 16px 20px !important;
+}
+
+.ant-table-tbody > tr {
+  transition: all 0.2s ease;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #f8fafc !important;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 16px 20px !important;
+  color: #334155;
+}
+
+/* ────────────────────── Buttons ────────────────────── */
+.ant-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+.ant-btn-primary {
+  background: #0f172a !important;
+  border-color: #0f172a !important;
+  color: white !important;
+}
+
+.ant-btn-primary:hover {
+  background: #1e293b !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  transform: none;
+}
+
+/* ────────────────────── Input Focus ────────────────────── */
+.ant-input, .ant-select-selector {
+  border-radius: 8px !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.ant-input:focus,
+.ant-input-affix-wrapper-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: #94a3b8 !important;
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.1) !important;
+}
+
+/* ────────────────────── Pagination ────────────────────── */
+.ant-pagination-item {
+  border-radius: 8px !important;
+}
+
+.ant-pagination-item-active {
+  background: #0f172a !important;
+  border-color: #0f172a !important;
+}
+
+.ant-pagination-item-active a {
+  color: #fff !important;
+}
+
+/* ────────────────────── Scrollbar ────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ────────────────────── Responsive Breakpoints ────────────────────── */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 16px 12px;
+  }
+}

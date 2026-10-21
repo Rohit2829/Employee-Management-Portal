@@ -1,0 +1,234 @@
+/* ────────────────────── Main Layout Base ────────────────────── */
+.main-layout-container {
+  min-height: 100vh;
+  background: #f1f5f9; /* Match global body */
+  display: flex;
+}
+
+/* ────────────────────── Floating Sider ────────────────────── */
+.main-layout-sider {
+  margin: 24px !important; /* Margin on all sides to make it float */
+  height: calc(100vh - 48px) !important;
+  border-radius: 20px !important;
+  background: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-layout-sider .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ────────────────────── Logo Area ────────────────────── */
+.main-layout-logo {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.main-layout-logo h2 {
+  margin: 0;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  text-align: center;
+  padding: 0 16px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* ────────────────────── Menu ────────────────────── */
+.main-layout-menu {
+  flex-grow: 1;
+  border-right: none !important;
+  padding: 16px 0;
+}
+
+.ant-menu-item {
+  margin-bottom: 8px !important;
+  font-weight: 500;
+  color: #475569 !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-menu-item:hover {
+  color: #0f172a !important;
+}
+
+.ant-menu-item-selected {
+  color: #0f172a !important;
+  font-weight: 600;
+  background-color: #f1f5f9 !important;
+}
+
+/* ────────────────────── Logout ────────────────────── */
+.main-layout-logout-wrapper {
+  padding: 20px;
+  border-top: 1px solid rgba(0,0,0,0.03);
+  margin-top: auto;
+}
+
+.main-layout-logout-btn {
+  color: #ef4444 !important;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  height: 40px;
+  background: #fef2f2 !important;
+}
+
+.main-layout-logout-btn:hover {
+  background: #fee2e2 !important;
+  transform: translateY(-1px);
+}
+
+/* ────────────────────── Header & Content ────────────────────── */
+.main-layout-content-wrapper {
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.main-layout-header {
+  background: transparent !important;
+  padding: 24px 32px 0 32px !important; /* Top padding 24px for breathing room, 0 bottom */
+  height: auto !important; /* Scale automatically with PageHeader content */
+  display: flex;
+  align-items: flex-start !important; /* Align button to top level with PageHeader icon */
+  gap: 16px;
+}
+
+.main-layout-header-logo {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.desktop-toggle-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 34px !important;
+  width: 34px !important;
+  margin-right: 16px;
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+
+.main-layout-content {
+  padding: 0 32px 32px 32px; /* Top padding is 0 to align close to header divider */
+  background: transparent;
+  overflow-y: auto;
+  height: calc(100vh - 100px); /* Height adjusted for smaller padding */
+}
+
+/* ────────────────────── Media Queries ────────────────────── */
+@media (max-width: 1024px) {
+  .main-layout-sider {
+    margin: 16px !important;
+    height: calc(100vh - 32px) !important;
+  }
+  .main-layout-header {
+    padding: 0 24px !important;
+  }
+  .main-layout-content {
+    padding: 0 24px 24px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-layout-sider {
+    position: fixed;
+    height: calc(100vh - 32px) !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  
+  .main-layout-sider-collapsed {
+    margin-left: -300px !important; /* Hide offscreen when collapsed on mobile */
+    opacity: 0;
+  }
+  
+  .main-layout-sider:not(.main-layout-sider-collapsed) {
+    margin-left: 16px !important;
+    opacity: 1;
+  }
+
+  .desktop-toggle-btn {
+    display: inline-flex !important;
+  }
+
+  .main-layout-header {
+    padding: 0 16px !important;
+    height: 64px;
+  }
+  
+  .main-layout-content {
+    padding: 0 16px 16px 16px;
+    height: calc(100vh - 64px);
+  }
+}
+
+/* ────────────────────── Sidebar Profile Widget ────────────────────── */
+.sidebar-profile-widget {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(0,0,0,0.03);
+  background: #f8fafc;
+  margin-top: auto;
+}
+
+.profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.profile-email {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 1px;
+}

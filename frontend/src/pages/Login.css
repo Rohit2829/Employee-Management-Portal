@@ -1,0 +1,99 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.login-card {
+  width: 460px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.login-card .ant-card-body {
+  padding: 48px 40px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: #0f172a;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.login-icon-wrapper .anticon {
+  font-size: 32px;
+  color: #fff;
+}
+
+.login-title {
+  margin: 0 !important;
+  color: #0f172a !important;
+}
+
+.login-subtitle {
+  font-size: 14px;
+}
+
+.login-input {
+  border-radius: 8px;
+}
+
+.login-captcha-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 0 8px;
+}
+
+.login-captcha-canvas {
+  display: block;
+  cursor: pointer;
+}
+
+.login-captcha-input {
+  border-radius: 8px 0 0 8px;
+  border-right: 0;
+}
+
+.login-captcha-btn {
+  border-radius: 0 8px 8px 0;
+}
+
+.login-submit-btn {
+  width: 100%;
+  background: #0f172a;
+  height: 44px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-divider {
+  color: #94a3b8;
+  margin: 24px 0;
+}
+
+.login-social-btn {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.login-social-wrapper {
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+.search-bar-container {
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.search-bar-actions-col {
+  text-align: right;
+}
+
+.search-bar-input {
+  border-radius: 6px;
+}
+
+.search-bar-reset-btn {
+  border-radius: 6px;
+}
+
+.search-bar-add-btn {
+  border-radius: 6px;
+  background: #0f172a;
+  border-color: #0f172a;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}

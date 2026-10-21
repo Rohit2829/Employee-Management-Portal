@@ -1,0 +1,61 @@
+.employee-table-code {
+  font-weight: 500;
+  color: #475569;
+}
+
+.employee-table-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.employee-table-email {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.employee-table-dept {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.employee-table-salary {
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 14px;
+}
+
+.employee-table-tag {
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.employee-table-tag-active {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.employee-table-tag-inactive {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.employee-table-action-edit {
+  border-radius: 4px;
+  color: #475569;
+}
+
+.employee-table-action-delete {
+  border-radius: 4px;
+  color: #0f172a;
+}
+
+.employee-table-pagination-total {
+  font-weight: 500;
+  color: #475569;
+}

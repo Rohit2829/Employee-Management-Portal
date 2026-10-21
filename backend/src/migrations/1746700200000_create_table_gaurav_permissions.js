@@ -1,0 +1,12 @@
+module.exports = {
+  up: `CREATE TABLE IF NOT EXISTS gaurav_permissions (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    description VARCHAR(500) NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);`,
+
+  down: `DROP TABLE IF EXISTS gaurav_permissions`,
+};
